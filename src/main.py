@@ -1,11 +1,11 @@
 import argparse
 import os
-from moviepy.editor import VideoFileClip, concatenate_videoclips, CompositeVideoClip
-from moviepy.video.fx.all import fadein, fadeout
+from moviepy.editor import VideoFileClip, CompositeVideoClip
 
 def main():
     parser = argparse.ArgumentParser(description='Join video files with fade transitions.')
     parser.add_argument('--folder', type=str, required=True, help='Folder containing video files.')
+    parser.add_argument('--output', type=str, default='output.mp4', help='Output file name.')
     args = parser.parse_args()
 
     folder = args.folder
@@ -38,10 +38,13 @@ def main():
     final_clip = CompositeVideoClip(video_fx)
 
     # Write the result to a file
-    output_file = os.path.join(folder, 'output.mp4')
+    output_file = os.path.join(folder, args.output)
     if os.path.exists(output_file):
         os.remove(output_file)
     final_clip.write_videofile(output_file, codec='libx264', audio=False)
+
+    for clip in clips:
+        clip.close()
 
 if __name__ == '__main__':
     main()

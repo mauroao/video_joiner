@@ -11,5 +11,6 @@ Use bibliotecas python que tenham um número bom de estrelas no github, ou que t
 - Use o Python que já está ativo no diretório .venv
 - Alimente corretamente o arquivo requirements.txt
 - Para testar o programa, execute python src/main.py --folder E:/stable_diffusion/comfy-ui/ComfyUI/output/test
+- Sempre rode o ruff para verificar o lint
 - Sempre teste o programa após uma alteração e veja se o video output.mp4 gerado é válido, você pode usar o ffmpeg 
 - Você está rodando em um powershell do windows, portanto não tente usar comandos linux 
