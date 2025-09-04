@@ -41,7 +41,7 @@ def main():
     output_file = os.path.join(folder, 'output.mp4')
     if os.path.exists(output_file):
         os.remove(output_file)
-    final_clip.write_videofile(output_file, codec='h264_nvenc', audio=False)
+    final_clip.write_videofile(output_file, codec='libx264', audio=False)
 
 if __name__ == '__main__':
     main()
